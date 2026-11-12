@@ -6,7 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] pillPrefabs;
     private float spawnRangeX = 20;
-    private float spawnPosZ= 20;
+    private float spawnRangeZ= 20;
+    private float spawnPosY =20;         
     private float startDelay = 2;
     private float spawnInterval = 1.5f;
 
@@ -19,7 +20,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomPill()
         {
             int pillIndex = Random.Range(0, pillPrefabs.Length);
-            Vector3 spawnPos = new Vector3 (Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+            Vector3 spawnPos = new Vector3 (Random.Range(-spawnRangeX, spawnRangeX), spawnPosY, Random.Range(-spawnRangeZ, spawnRangeZ));
             Instantiate(pillPrefabs[pillIndex], spawnPos, pillPrefabs[pillIndex].transform.rotation);
         }
 }
