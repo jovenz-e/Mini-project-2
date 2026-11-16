@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
-    private float lowerBound = -10;
+    private float lowerBound = -35;
     // Start is called before the first frame update
-    void Start()
+     void OnTriggerEnter(Collider other)
     {
-        
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

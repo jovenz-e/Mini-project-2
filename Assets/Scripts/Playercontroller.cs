@@ -9,10 +9,16 @@ public class Playercontroller : MonoBehaviour
     private float verticalInput;
     private Rigidbody rigid;
 
+    public int Scorer;
+
+
+ 
     // Start is called before the first frame update
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody>();
+        
+        
     }
     // Update is called once per frame
     void Update()
@@ -39,6 +45,20 @@ public class Playercontroller : MonoBehaviour
       {
         rigid.AddForce(Vector3.left*Time.deltaTime*speed);
       }
-      
     }
+      private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("good"))
+        {
+          Scorer++;
+        }
+        else if (collision.gameObject.CompareTag("bad"))
+        {
+            Scorer--;
+        }
+        Debug.Log(Scorer);
+    }
+ 
+    
+
 }
